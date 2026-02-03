@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'SpecialGothic';
+    src:
+        url('../fonts/SpecialGothic.woff') format('woff'),
+        url('../fonts/special-gothic.woff2') format('woff2');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.nav-left {
+    position: absolute;
+    left: 2.5vw;
+    z-index: 1;
+    text-shadow: #ffffff 0px 0px 5vw;
+}
+
+#raw-top-left {
+    position: absolute;
+    font-family: 'SpecialGothic';
+    font-size: 2vw;
+    margin-left: 35vw;
+}
+
+.bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.25;
+    filter: grayscale(100%);
+}
+
+
+.content {
+    margin-left: 50vw;
+    margin-top: 10vh;
+}
+
+#email-text {
+    font-family: 'SpecialGothic';
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    line-height: 2vh;
+    align-items: center;
+}
+
+#email-input {
+    font-family: 'SpecialGothic';
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    line-height: 2vh;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+#city-text {
+    font-family: 'SpecialGothic';
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    line-height: 2vh;
+    align-items: center;
+}
+
+#city-input {
+    font-family: 'SpecialGothic';
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    line-height: 2vh;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+#why-text {
+    font-family: 'SpecialGothic';
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    line-height: 2vh;
+    align-items: center;
+}
+
+#why-input {
+    font-family: 'SpecialGothic';
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    line-height: 2vh;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}

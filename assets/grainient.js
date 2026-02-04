@@ -11,23 +11,41 @@ window.addEventListener("resize", resize);
 let t = 0;
 
 function draw() {
-  t += 0.005;
+  t += 0.003;
+
+  // ---- SMOOTH RADIAL GRADIENT ----
+  const x = canvas.width * (0.5 + Math.sin(t) * 0.15);
+  const y = canvas.height * (0.5 + Math.cos(t * 0.9) * 0.15);
 
   const g = ctx.createRadialGradient(
-    canvas.width * (0.5 + Math.sin(t) * 0.2),
-    canvas.height * (0.5 + Math.cos(t) * 0.2),
-    100,
+    x,
+    y,
+    0,
     canvas.width / 2,
     canvas.height / 2,
-    canvas.width
+    canvas.width * 0.9
   );
 
-  g.addColorStop(0, "#000000");
-  g.addColorStop(0.5, "#ffffff");
-  g.addColorStop(1, "#000000");
+  g.addColorStop(0, "rgba(255,159,252,0.9)");
+  g.addColorStop(0.35, "rgba(177,158,239,0.6)");
+  g.addColorStop(0.7, "rgba(82,39,255,0.35)");
+  g.addColorStop(1, "rgba(0,0,0,1)");
 
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // ---- FILM GRAIN ----
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+
+  for (let i = 0; i < data.length; i += 4) {
+    const grain = (Math.random() - 0.5) * 18; // intensity
+    data[i] += grain;
+    data[i + 1] += grain;
+    data[i + 2] += grain;
+  }
+
+  ctx.putImageData(imageData, 0, 0);
 
   requestAnimationFrame(draw);
 }

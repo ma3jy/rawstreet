@@ -5,230 +5,465 @@
         url('../fonts/special-gothic.woff2') format('woff2');
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
-    color: #ffffff;
+@media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        opacity: 1;
+    }
+
+    .nav-left {
+        position: absolute;
+        left: 50vw;
+        top: 50vh;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: 10vw;
+        height: 10vw;
+        text-shadow: #ffffff 0px 0px 50vw;
+    }
+
+    .raw-center {
+        font-family: 'SpecialGothic';
+        font-size: 7vw;
+        text-shadow: #ffffff3f 0px 0px 500vw,
+                     #ff0000 0px 0px 50vw
+                     #ffffff 0px 0px 500vw;
+    }
+
+    .bg-img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.25;
+        filter: grayscale(100%);
+    }
+
+
+    .content {
+        margin-left: 50vw;
+        margin-top: 10vh;
+    }
+
+    #email-text {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        align-items: center;
+    }
+
+    #email-input {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 0.3vw;
+    }
+
+    #email-input:hover {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ff0000;
+        border-radius: 0.3vw;
+    }
+
+    #city-text {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        align-items: center;
+    }
+
+    #city-input {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 0.3vw;
+    }
+
+    #city-input:hover {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ff0000;
+        border-radius: 0.3vw;
+    }
+
+    #jtwbtn {
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0);
+        color: #ffffff;
+        border: none;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-70%, -50%);
+    }
+
+    #jtwbtn:hover {
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0);
+        color: #ff0000;
+        border: none;
+    }
+
+    /* Modal background */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        background-color: rgb(0, 0, 0); /* semi-transparent */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: #000000;
+        margin: auto;
+        padding: 20px;
+        border-radius: 12px;
+        width: 80vw;
+        max-width: 400px;
+        position: relative;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .modal-header {
+        font-family: 'SpecialGothic';
+        font-size: 3vh;
+        margin-bottom: 15px;
+        color: #ffffff;
+    }
+
+    .geographic {
+        font-family: 'SpecialGothic', monospace;
+        font-size: 1.3vh;
+        margin-bottom: 15px;
+        color: #ffffff;
+        font-variant-numeric: tabular-nums; /* numbers all same width */
+        letter-spacing: 0.05em;    
+        text-shadow:
+            0 0 5px #000000,
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 40px #ff0000;
+        /* optional: animate opacity for flicker */
+        animation: flicker 0.3s infinite alternate;
+    }
+
+    @keyframes flicker {
+        0% { opacity: 0.8; }
+        50% { opacity: 1; }
+        100% { opacity: 0.85; }
+    }
+
+    /* Close button */
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Simple fade-in animation */
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    input, button {
+        color: #ffffff;
+        background-color: #000000;
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        border: 1px solid #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    #submitWaitlistBtn:hover {
+        color: #ffffff;
+        background-color: #ff0000;
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        border: 1px solid #000000;
+        transition: all 0.3s ease;
+    }
 }
+@media (min-width: 769px) {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+        color: #ffffff;
+    }
 
-.bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    opacity: 1;
-}
+    .bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        opacity: 1;
+    }
 
-.nav-left {
-    position: absolute;
-    left: 50vw;       /* Center horizontally */
-    top: 50vh;        /* Center vertically */
-    transform: translate(-50%, -50%); /* Adjust for element’s own width & height */
-    z-index: 1;
-    text-shadow: #ffffff 0px 0px 50vw;
-}
+    .nav-left {
+        position: absolute;
+        left: 50vw;
+        top: 50vh;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        text-shadow: #ffffff 0px 0px 50vw;
+    }
 
-.raw-center {
-    font-family: 'SpecialGothic';
-    font-size: 2vw;
-    text-align: center;
-    text-shadow: #ffffff 0px 0px 50vw;
-}
-
-
-.bg-img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.25;
-    filter: grayscale(100%);
-}
+    .raw-center {
+        font-family: 'SpecialGothic';
+        font-size: 2vw;
+        text-align: center;
+        text-shadow: #ffffff 0px 0px 50vw;
+    }
 
 
-.content {
-    margin-left: 50vw;
-    margin-top: 10vh;
-}
+    .bg-img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.25;
+        filter: grayscale(100%);
+    }
 
-#email-text {
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    margin: 0;
-    padding: 0;
-    line-height: 2vh;
-    align-items: center;
-}
 
-#email-input {
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    margin: 0;
-    padding: 0;
-    line-height: 2vh;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 0.3vw;
-}
+    .content {
+        margin-left: 50vw;
+        margin-top: 10vh;
+    }
 
-#email-input:hover {
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    margin: 0;
-    padding: 0;
-    line-height: 2vh;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #ff0000;
-    border-radius: 0.3vw;
-}
+    #email-text {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        align-items: center;
+    }
 
-#city-text {
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    margin: 0;
-    padding: 0;
-    line-height: 2vh;
-    align-items: center;
-}
+    #email-input {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 0.3vw;
+    }
 
-#city-input {
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    margin: 0;
-    padding: 0;
-    line-height: 2vh;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 0.3vw;
-}
+    #email-input:hover {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ff0000;
+        border-radius: 0.3vw;
+    }
 
-#city-input:hover {
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    margin: 0;
-    padding: 0;
-    line-height: 2vh;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #ff0000;
-    border-radius: 0.3vw;
-}
+    #city-text {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        align-items: center;
+    }
 
-#jtwbtn {
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0);
-    color: #ffffff;
-    border: none;
-}
+    #city-input {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 0.3vw;
+    }
 
-#jtwbtn:hover {
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0);
-    color: #ff0000;
-    border: none;
-}
+    #city-input:hover {
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ff0000;
+        border-radius: 0.3vw;
+    }
 
-/* Modal background */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
-    background-color: rgb(0, 0, 0); /* semi-transparent */
-    justify-content: center;
-    align-items: center;
-}
+    #jtwbtn {
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0);
+        color: #ffffff;
+        border: none;
+    }
 
-/* Modal content box */
-.modal-content {
-    background-color: #000000;
-    margin: auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 20vw;
-    max-width: 400px;
-    position: relative;
-    animation: fadeIn 0.3s ease;
-}
+    #jtwbtn:hover {
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0);
+        color: #ff0000;
+        border: none;
+    }
 
-.modal-header {
-    font-family: 'SpecialGothic';
-    font-size: 3vh;
-    margin-bottom: 15px;
-    color: #ffffff;
-}
+    /* Modal background */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        background-color: rgb(0, 0, 0); /* semi-transparent */
+        justify-content: center;
+        align-items: center;
+    }
 
-.geographic {
-    font-family: 'SpecialGothic', monospace;
-    font-size: 2vh;
-    margin-bottom: 15px;
-    color: #ffffff;
-    font-variant-numeric: tabular-nums; /* numbers all same width */
-    letter-spacing: 0.05em;    
-    text-shadow:
-        0 0 5px #000000,
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 40px #ff0000;
-    /* optional: animate opacity for flicker */
-    animation: flicker 0.3s infinite alternate;
-}
+    /* Modal content box */
+    .modal-content {
+        background-color: #000000;
+        margin: auto;
+        padding: 20px;
+        border-radius: 12px;
+        width: 20vw;
+        max-width: 400px;
+        position: relative;
+        animation: fadeIn 0.3s ease;
+    }
 
-@keyframes flicker {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; }
-    100% { opacity: 0.85; }
-}
+    .modal-header {
+        font-family: 'SpecialGothic';
+        font-size: 3vh;
+        margin-bottom: 15px;
+        color: #ffffff;
+    }
 
-/* Close button */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-}
+    .geographic {
+        font-family: 'SpecialGothic', monospace;
+        font-size: 2vh;
+        margin-bottom: 15px;
+        color: #ffffff;
+        font-variant-numeric: tabular-nums; /* numbers all same width */
+        letter-spacing: 0.05em;    
+        text-shadow:
+            0 0 5px #000000,
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 40px #ff0000;
+        /* optional: animate opacity for flicker */
+        animation: flicker 0.3s infinite alternate;
+    }
 
-/* Simple fade-in animation */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
+    @keyframes flicker {
+        0% { opacity: 0.8; }
+        50% { opacity: 1; }
+        100% { opacity: 0.85; }
+    }
 
-input, button {
-    color: #ffffff;
-    background-color: #000000;
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    border: 1px solid #ffffff;
-    transition: all 0.3s ease;
-}
+    /* Close button */
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
 
-#submitWaitlistBtn:hover {
-    color: #ffffff;
-    background-color: #ff0000;
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    font-family: 'SpecialGothic';
-    font-size: 2vh;
-    border: 1px solid #000000;
-    transition: all 0.3s ease;
+    /* Simple fade-in animation */
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    input, button {
+        color: #ffffff;
+        background-color: #000000;
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        border: 1px solid #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    #submitWaitlistBtn:hover {
+        color: #ffffff;
+        background-color: #ff0000;
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        font-family: 'SpecialGothic';
+        font-size: 2vh;
+        border: 1px solid #000000;
+        transition: all 0.3s ease;
+    }
 }

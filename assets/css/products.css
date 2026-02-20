@@ -259,7 +259,7 @@
     .nav-left {
         position: absolute;
         left: 50vw;
-        top: 0vh;
+        top: 5vh;
         transform: translate(-50%, -50%);
         z-index: 1;
         text-shadow: #ffffff 0px 0px 50vw;

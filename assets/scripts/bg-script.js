@@ -9,7 +9,7 @@ resize();
 window.addEventListener("resize", resize);
 
 function drawGrain() {
-  ctx.fillStyle = "rgba(255, 255, 255, 0.25)";
+  ctx.fillStyle = "rgba(255, 255, 255, 0.51)";
   const grainCount = 1000; // more particles for stronger grain
   for (let i = 0; i < grainCount; i++) {
     const x = Math.random() * canvas.width;
